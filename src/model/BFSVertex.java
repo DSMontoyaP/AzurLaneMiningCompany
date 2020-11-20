@@ -1,34 +1,34 @@
-package AlejandroImplementation;
+package model;
 
 import java.util.ArrayList;
 
-public class Vertex implements Comparable<Vertex>{
+public class BFSVertex implements Comparable<BFSVertex>{
 	
 	public static final int WHITE = 0;
 	public static final int GRAY = 1;
 	public static final int BLACK = 2;
 	
-	private ArrayList<Vertex> relations;
+	private ArrayList<BFSVertex> relations;
 	private int color;
 	private int distance;
-	private Vertex predecessor;
+	private BFSVertex predecessor;
 	
-	public Vertex(int color, int distance, Vertex predecessor) {
+	public BFSVertex(int color, int distance, BFSVertex predecessor) {
 		this.relations = new ArrayList<>();
 		this.color = color;
 		this.distance = distance;
 		this.predecessor = predecessor;
 	}
 
-	public void addEdge(Vertex destiny) {
+	public void addEdge(BFSVertex destiny) {
 		relations.add(destiny);
 	}
 	
-	public ArrayList<Vertex> getRelations() {
+	public ArrayList<BFSVertex> getRelations() {
 		return relations;
 	}
 
-	public void setRelations(ArrayList<Vertex> relations) {
+	public void setRelations(ArrayList<BFSVertex> relations) {
 		this.relations = relations;
 	}
 
@@ -48,16 +48,16 @@ public class Vertex implements Comparable<Vertex>{
 		this.distance = distance;
 	}
 
-	public Vertex getPredecessor() {
+	public BFSVertex getPredecessor() {
 		return predecessor;
 	}
 
-	public void setPredecessor(Vertex predecessor) {
+	public void setPredecessor(BFSVertex predecessor) {
 		this.predecessor = predecessor;
 	}
 
 	@Override
-	public int compareTo(Vertex other) {
+	public int compareTo(BFSVertex other) {
 		
 		return this.distance - other.getDistance();
 	}
